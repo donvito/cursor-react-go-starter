@@ -2,6 +2,14 @@
 
 A modern, full-stack Todo application built with React and Go, featuring real-time updates and persistent storage.
 
+## Screenshots
+
+### List View
+![Todo List View](images/todo-list.png)
+
+### Card View
+![Todo Card View](images/todo-cards.png)
+
 ## Architecture
 
 ```mermaid
