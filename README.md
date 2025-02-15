@@ -62,7 +62,7 @@ flowchart LR
 - **Frontend**:
   - React
   - TypeScript
-  - Modern CSS
+  - Tailwind
 
 - **Backend**:
   - Go
