@@ -2,18 +2,12 @@
 
 A modern, full-stack Todo application built with React and Go, featuring real-time updates and persistent storage.
 
-## Screenshots
-
-### List View
-![Todo List View](images/todo-list.png)
-
-### Card View
-![Todo Card View](images/todo-cards.png)
+This example project was built using [Cursor](https://cursor.sh), the world's best AI-native IDE.
 
 ## Architecture
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph Frontend[Frontend React]
         A[React App]
         B[Todo Component]
@@ -45,6 +39,14 @@ flowchart TB
     
     class A,B,C,D,E,F,G,H,I default;
 ```
+
+## Screenshots
+
+### List View
+![Todo List View](images/todo-list.png)
+
+### Card View
+![Todo Card View](images/todo-cards.png)
 
 ## Project Structure
 
