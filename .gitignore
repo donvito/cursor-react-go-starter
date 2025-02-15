@@ -61,4 +61,9 @@ go.work
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-$RECYCLE.BIN/ 
+$RECYCLE.BIN/
+
+# Docker
+.docker
+docker-compose.override.yml
+*.env 

@@ -33,14 +33,9 @@ flowchart TB
     D -->|HTTP| E
     H -->|CRUD| I
 
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px;
-    classDef frontend fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef backend fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef database fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef default fill:#ffffff,stroke:#000000,stroke-width:1px;
     
-    class A,B,C,D frontend;
-    class E,F,G,H backend;
-    class I database;
+    class A,B,C,D,E,F,G,H,I default;
 ```
 
 ## Project Structure
@@ -84,23 +79,70 @@ flowchart TB
 - `PUT /api/todos/:id`: Update a todo
 - `DELETE /api/todos/:id`: Delete a todo
 
-## Getting Started
+## Running the Application
 
-Start the backend server:
+### Using Docker (Recommended)
 
-```bash
-cd backend
-go run main.go
-```
+The easiest way to run the application is using Docker. This will run both frontend and backend in a single container.
 
-Start the frontend development server:
+1. Build the Docker image:
+   ```bash
+   docker build -t todo-app .
+   ```
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+2. Run the container:
+   ```bash
+   docker run -p 5173:5173 -p 8080:8080 todo-app
+   ```
 
 The application will be available at:
 - Frontend: http://localhost:5173
-- Backend: http://localhost:8080 
+- Backend API: http://localhost:8080
+
+### Manual Setup
+
+If you prefer to run the services separately:
+
+1. Start the backend server:
+   ```bash
+   cd backend
+   go run main.go
+   ```
+
+2. Start the frontend development server:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+## Development
+
+### Prerequisites
+- Docker (for containerized setup)
+- Go 1.21 or later (for manual backend setup)
+- Node.js 20 or later (for manual frontend setup)
+
+### Data Persistence
+- The application uses BadgerDB for data storage
+- Data is persisted in the `backend/data` directory
+- When running in Docker, the data persists within the container
+
+### Environment Variables
+- `FRONTEND_URL`: Frontend URL (default: http://localhost:5173)
+- `BACKEND_URL`: Backend API URL (default: http://localhost:8080)
+
+## Troubleshooting
+
+### Docker Issues
+1. Port conflicts:
+   - If ports 5173 or 8080 are in use, modify the port mapping in the docker run command:
+   ```bash
+   docker run -p <new-frontend-port>:5173 -p <new-backend-port>:8080 todo-app
+   ```
+
+2. Data persistence:
+   - To persist data outside the container, mount a volume:
+   ```bash
+   docker run -p 5173:5173 -p 8080:8080 -v $(pwd)/data:/app/backend/data todo-app
+   ``` 
