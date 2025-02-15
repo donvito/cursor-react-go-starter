@@ -8,36 +8,23 @@ This example project was built using [Cursor](https://cursor.sh), the world's be
 
 ```mermaid
 flowchart LR
-    subgraph Frontend[Frontend React]
-        A[React App]
-        B[Todo Component]
-        C[State Management]
-        D[API Client]
-        A --> B
-        B --> C
-        C --> D
+    subgraph Frontend[Frontend]
+        React[React TypeScript App]
     end
 
-    subgraph Backend[Backend Go/Echo]
-        E[Echo Server]
-        F[Todo Handler]
-        G[Repository Interface]
-        H[BadgerDB Repository]
-        E --> F
-        F --> G
-        G --> H
+    subgraph Backend[Backend]
+        Go[Go Echo Server]
     end
 
     subgraph DB[Database]
-        I[BadgerDB]
+        BadgerDB[BadgerDB]
     end
 
-    D -->|HTTP| E
-    H -->|CRUD| I
+    React -->|HTTP/REST| Go
+    Go -->|CRUD| BadgerDB
 
     classDef default fill:#ffffff,stroke:#000000,stroke-width:1px;
-    
-    class A,B,C,D,E,F,G,H,I default;
+    class React,Go,BadgerDB default;
 ```
 
 ## Screenshots
