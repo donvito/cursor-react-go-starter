@@ -9,11 +9,11 @@ This example project was built using [Cursor](https://cursor.sh), the world's be
 ```mermaid
 flowchart LR
     subgraph Frontend[Frontend]
-        React[React TypeScript App]
+        React[React App<br/>:5173]
     end
 
     subgraph Backend[Backend]
-        Go[Go Echo Server]
+        Go[Go Echo Server<br/>:8080]
     end
 
     subgraph DB[Database]
