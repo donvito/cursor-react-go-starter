@@ -1,8 +1,8 @@
-# Cursor React-Go Todo Application
+# React-Go Todo Application
 
 A modern, full-stack Todo application built with React and Go, featuring real-time updates and persistent storage.
 
-This example project was built using [Cursor](https://cursor.sh), the world's best AI-native IDE.
+This example project was built using [Cursor](https://cursor.sh)
 
 ## Architecture
 
